@@ -1,0 +1,44 @@
+$ink: theme-get(brand, ink);
+
+.edition {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	padding: 14px;
+}
+
+.top {
+	display: flex;
+	justify-content: space-between;
+	gap: 8px;
+	margin-bottom: auto;
+	font: 600 10px/1.2 $font-label;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+}
+
+.label {
+	margin-top: 18px;
+
+	@include poster-type(34px);
+}
+
+.number {
+	margin-left: -4px;
+	font: 128px/0.82 $font-display;
+}
+
+.left {
+	margin-top: 10px;
+	padding-top: 8px;
+	border-top: 2px solid $ink;
+	font: 700 22px/1.1 $font-poster;
+	text-transform: uppercase;
+
+	b {
+		padding: 0 6px;
+		background: $ink;
+		color: theme-get(brand, pink);
+		font: 26px/1 $font-display;
+	}
+}

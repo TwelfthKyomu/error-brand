@@ -1,0 +1,67 @@
+$ink: theme-get(brand, ink);
+
+.rules {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 1.5rem;
+
+	@include tablet {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	@include mobile {
+		grid-template-columns: 1fr;
+	}
+}
+
+.rule {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	min-height: 16rem;
+	padding: 1.5rem 1.25rem 1.25rem;
+	color: $ink;
+	box-shadow: $shadow-md;
+
+	@include tape(-3deg);
+
+	&:nth-child(2n) {
+		transform: rotate(1.2deg);
+	}
+
+	&:nth-child(2n + 1) {
+		transform: rotate(-0.9deg);
+	}
+}
+
+.pink {
+	@include paper(theme-get(brand, pink));
+}
+
+.yellow {
+	@include paper(theme-get(brand, yellow));
+}
+
+.blue {
+	@include paper(theme-get(brand, blue));
+
+	color: theme-get(brand, pink);
+}
+
+.white {
+	@include paper;
+}
+
+.number {
+	font: 2.5rem/1 $font-display;
+}
+
+.title {
+	@include poster-type(3.25rem);
+}
+
+.text {
+	margin-top: auto;
+	font: 500 #{$font-size-base}/ 1.45 $font-label;
+}

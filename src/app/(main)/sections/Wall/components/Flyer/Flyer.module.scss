@@ -1,0 +1,229 @@
+$ink: theme-get(brand, ink);
+$paper-white: theme-get(brand, paper-white);
+$pink: theme-get(brand, pink);
+$yellow: theme-get(brand, yellow);
+$shadow: theme-get(brand, shadow);
+$perforation: rgb(19 19 19 / 38%);
+
+.flyer {
+	&:hover,
+	&:focus-within {
+		z-index: 6;
+		transform: rotate(calc(var(--r) * 0.25)) translateY(-5px) scale(1.025);
+	}
+}
+
+.body {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding: 14px 14px 12px;
+
+	@include paper(var(--bg));
+
+	color: $ink;
+	box-shadow:
+		0 1px 1px $shadow,
+		0 14px 18px -12px $shadow;
+
+	&::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+
+		@include sheen;
+	}
+
+	&:focus-visible {
+		outline: 3px solid $yellow;
+		outline-offset: 4px;
+	}
+}
+
+.kickerShort {
+	--kicker-inset: 52px;
+}
+
+.photo {
+	display: block;
+	aspect-ratio: 4 / 5;
+	max-width: 100%;
+	overflow: hidden;
+	filter: grayscale(1) contrast(1.35);
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+.cover {
+	position: relative;
+}
+
+.name {
+	margin-top: 2px;
+
+	@include poster-type(var(--fs));
+}
+
+.onPhoto {
+	$outline: #fff;
+
+	position: absolute;
+	inset: auto 8px 6px;
+	margin: 0;
+	text-shadow:
+		1px 0 $outline,
+		-1px 0 $outline,
+		0 1px $outline,
+		0 -1px $outline;
+}
+
+.row {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap: 8px;
+	padding-top: 9px;
+	border-top: 2px solid $ink;
+}
+
+.price {
+	font: 21px/1 $font-display;
+	white-space: nowrap;
+}
+
+.stock {
+	font: 500 11px/1.25 $font-label;
+	text-align: right;
+}
+
+.low {
+	padding: 2px 5px;
+	background: $pink;
+	color: $ink;
+}
+
+.tabs {
+	position: relative;
+	display: flex;
+	gap: 3px;
+	min-height: 92px;
+	padding: 0 9px;
+}
+
+.tab {
+	flex: 1 1 0;
+	min-width: 0;
+	padding: 8px 0;
+	border: 0;
+	border-top: 2px dotted $perforation;
+
+	@include paper(var(--bg));
+
+	color: $ink;
+	box-shadow: 0 8px 10px -8px $shadow;
+	writing-mode: vertical-rl;
+	transform: rotate(180deg);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 3px;
+	font: 600 10px/1.05 $font-label;
+	letter-spacing: 0.04em;
+	cursor: pointer;
+	transition: transform 0.2s $ease-out;
+
+	b {
+		font-weight: 700;
+		letter-spacing: 0;
+	}
+
+	&:hover {
+		transform: rotate(180deg) translateY(-5px);
+	}
+
+	&:focus-visible {
+		outline: 2px solid $yellow;
+		outline-offset: 2px;
+	}
+
+	span,
+	b {
+		white-space: nowrap;
+	}
+}
+
+.stub {
+	height: 15px;
+	align-self: flex-start;
+	cursor: default;
+	clip-path: polygon(
+		0 0,
+		100% 0,
+		100% 60%,
+		84% 100%,
+		66% 70%,
+		48% 100%,
+		30% 74%,
+		14% 100%,
+		0 78%
+	);
+
+	&:nth-child(2n) {
+		height: 12px;
+		clip-path: polygon(
+			0 0,
+			100% 0,
+			100% 90%,
+			80% 62%,
+			62% 100%,
+			40% 70%,
+			20% 96%,
+			0 66%
+		);
+	}
+
+	&:hover {
+		transform: rotate(180deg);
+	}
+}
+
+.dark {
+	.body,
+	.tab {
+		color: $paper-white;
+	}
+
+	.name {
+		color: $pink;
+	}
+
+	.row {
+		border-top-color: $paper-white;
+	}
+
+	.tab {
+		border-top-color: rgb(241 240 234 / 45%);
+	}
+}
+
+.soldOut .body {
+	opacity: 0.72;
+}
+
+.ghost {
+	position: fixed;
+	z-index: $z-index-tooltip;
+	pointer-events: none;
+
+	@include paper($paper-white);
+
+	border-top: 2px dotted $perforation;
+	box-shadow: 0 10px 14px -8px $shadow;
+}

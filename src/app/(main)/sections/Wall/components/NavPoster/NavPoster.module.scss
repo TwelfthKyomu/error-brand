@@ -1,0 +1,25 @@
+.nav {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding: 16px;
+}
+
+.title {
+	@include poster-type(62px);
+
+	line-height: 0.82;
+}
+
+.text {
+	max-width: 26ch;
+	font: 500 13px/1.4 $font-label;
+}
+
+.arrow {
+	position: absolute;
+	right: 14px;
+	bottom: 10px;
+	font: 34px/1 $font-display;
+	color: var(--accent);
+}

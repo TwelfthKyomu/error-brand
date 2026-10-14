@@ -1,0 +1,18 @@
+.clue {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding: 16px;
+}
+
+.title {
+	@include poster-type(64px);
+
+	line-height: 0.8;
+	color: theme-get(brand, pink);
+}
+
+.text {
+	font: 500 13px/1.4 $font-label;
+	color: theme-get(brand, paper-white);
+}

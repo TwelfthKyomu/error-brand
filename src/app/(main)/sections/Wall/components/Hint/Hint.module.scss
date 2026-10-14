@@ -1,0 +1,51 @@
+$ink: theme-get(brand, ink);
+$paper-white: theme-get(brand, paper-white);
+
+.hint {
+	position: fixed;
+	left: 16px;
+	bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
+	z-index: 20;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	max-width: calc(100% - 32px);
+	padding: 10px 14px;
+	background: $ink;
+	color: $paper-white;
+	font: 500 12.5px/1.35 $font-label;
+	transition: opacity 0.6s;
+
+	svg {
+		flex: none;
+		width: 18px;
+		height: 18px;
+	}
+
+	@include mobile {
+		font-size: 12px;
+	}
+}
+
+.quiet {
+	opacity: 0.5;
+}
+
+.link {
+	flex: none;
+	padding: 7px 10px;
+	background: $paper-white;
+	color: $ink;
+	font: 600 11px/1 $font-label;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+
+	&:hover {
+		background: theme-get(brand, pink);
+	}
+
+	&:focus-visible {
+		outline: 3px solid theme-get(brand, yellow);
+		outline-offset: 2px;
+	}
+}

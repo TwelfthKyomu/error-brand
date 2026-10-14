@@ -1,0 +1,28 @@
+.brand {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 14px;
+}
+
+.word {
+	font: var(--fs) / 0.8 $font-display;
+	color: var(--word);
+	text-shadow: 4px 4px 0 var(--word-shadow);
+}
+
+.torn {
+	clip-path: polygon(
+		0 0,
+		100% 0,
+		100% 70%,
+		94% 74%,
+		97% 80%,
+		88% 85%,
+		90% 92%,
+		79% 94%,
+		74% 100%,
+		0 100%
+	);
+}

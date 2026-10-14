@@ -1,0 +1,54 @@
+$ink: theme-get(brand, ink);
+
+.wall {
+	@include full-wall;
+}
+
+.poster {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	width: min(30rem, 100%);
+	padding: 1.75rem;
+
+	@include paper(theme-get(brand, pink));
+
+	color: $ink;
+	transform: rotate(-1.5deg);
+	box-shadow:
+		0 1px 1px theme-get(brand, shadow),
+		0 30px 40px -24px theme-get(brand, shadow);
+	clip-path: polygon(
+		0 0,
+		100% 0,
+		100% 88%,
+		92% 92%,
+		95% 97%,
+		84% 100%,
+		0 100%
+	);
+
+	@include tape(0deg);
+}
+
+.code {
+	font: clamp(6rem, 22vw, 9rem) / 0.8 $font-display;
+	color: $ink;
+	text-shadow: 5px 5px 0 theme-get(brand, blue);
+}
+
+.title {
+	@include poster-type(clamp(2.5rem, 8vw, 3.75rem));
+}
+
+.text {
+	font: 500 #{$font-size-base}/ 1.45 $font-label;
+}
+
+.actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	margin-top: 0.5rem;
+}

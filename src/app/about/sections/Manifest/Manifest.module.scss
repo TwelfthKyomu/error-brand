@@ -1,0 +1,35 @@
+.manifest {
+	display: grid;
+	grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+	align-items: end;
+	gap: 2rem 3rem;
+	padding-bottom: 2.5rem;
+
+	@include rule(bottom);
+
+	@include tablet {
+		grid-template-columns: 1fr;
+	}
+}
+
+.title {
+	@include poster-type(clamp(4.5rem, 14vw, 10rem));
+
+	line-height: 0.78;
+}
+
+.body {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.lead {
+	font: 500 clamp(1.0625rem, 1.6vw, 1.25rem) / 1.5 $font-label;
+}
+
+.actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+}

@@ -1,0 +1,37 @@
+@use "sass:map";
+
+$theme: (
+	color: (
+		100: #131313,
+		200: #5d5b55,
+		300: #dcdad2,
+	),
+	variable: (
+		100: rgba(#131313, 0.04),
+		200: rgba(#131313, 0.1),
+		400: rgba(#131313, 0.32),
+		500: rgba(#131313, 0.55),
+	),
+	brand: (
+		wall: #141514,
+		tile: #1e201e,
+		grout: #0b0c0b,
+		paper: #dcdad2,
+		paper-white: #f1f0ea,
+		paper-back: #b7b4ab,
+		ink: #131313,
+		pink: #ff4fae,
+		blue: #2445d6,
+		yellow: #ffe23d,
+		tape: rgb(228 222 200 / 62%),
+		shadow: rgb(0 0 0 / 72%),
+	),
+	accent: (
+		error: #c8341b,
+		error-bg: rgb(200 52 27 / 8%),
+	),
+);
+
+@function theme-get($group, $key) {
+	@return map.get($theme, $group, $key);
+}

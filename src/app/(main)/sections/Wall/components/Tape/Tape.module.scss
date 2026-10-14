@@ -1,0 +1,3 @@
+.tape {
+	@include tape-strip(var(--tr, -4deg));
+}

@@ -1,0 +1,201 @@
+$ink: theme-get(brand, ink);
+$pink: theme-get(brand, pink);
+
+.spread {
+	display: grid;
+	grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+	gap: 3rem;
+	padding-block: 3rem;
+
+	@include perforation(top);
+
+	@include tablet {
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+	}
+}
+
+.reversed {
+	@media (min-width: 1025px) {
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+
+		.photo {
+			order: 2;
+		}
+	}
+}
+
+.photo {
+	position: relative;
+	aspect-ratio: 4 / 5;
+	padding: 0.75rem;
+
+	@include paper;
+
+	box-shadow: $shadow-md;
+	transform: rotate(-0.6deg);
+
+	@include tape(-4deg);
+
+	.reversed & {
+		transform: rotate(0.7deg);
+	}
+}
+
+.image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.marker {
+	position: absolute;
+	z-index: 1;
+	display: grid;
+	place-items: center;
+	width: 2.25rem;
+	height: 2.25rem;
+	border-radius: 50%;
+
+	@include paper(theme-get(brand, yellow));
+
+	color: $ink;
+	font: 0.8125rem/1 $font-display;
+	transform: translate(-50%, -50%) rotate(-8deg);
+	box-shadow: $shadow-sm;
+	transition:
+		background-color $duration-fast $ease-out,
+		transform $duration-fast $ease-out;
+
+	&:hover {
+		background-color: $pink;
+	}
+
+	&:focus-visible {
+		outline: 3px solid theme-get(brand, blue);
+		outline-offset: 2px;
+	}
+}
+
+.markerActive {
+	background-color: $pink;
+	transform: translate(-50%, -50%) rotate(-8deg) scale(1.15);
+}
+
+.composition {
+	position: sticky;
+	top: 6rem;
+	align-self: start;
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+
+	@include tablet {
+		position: static;
+	}
+}
+
+.heading {
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: 0.5rem;
+
+	@include label;
+
+	color: $ink;
+
+	@include rule(bottom);
+}
+
+.title {
+	@include poster-type(clamp(2.75rem, 5vw, 4rem));
+}
+
+.description {
+	color: theme-get(color, 200);
+	line-height: $line-height-relaxed;
+}
+
+.items {
+	display: flex;
+	flex-direction: column;
+}
+
+.item {
+	display: grid;
+	grid-template-columns: 2rem minmax(0, 1fr) auto;
+	align-items: baseline;
+	gap: 0.75rem;
+	padding: 0.625rem 0.5rem;
+
+	@include perforation(bottom);
+
+	transition: background-color $duration-fast $ease-out;
+
+	&:focus-visible {
+		outline: 3px solid theme-get(brand, blue);
+		outline-offset: 2px;
+	}
+}
+
+.itemActive,
+.item:hover {
+	background-color: theme-get(brand, yellow);
+}
+
+.number {
+	font: 0.875rem/1 $font-display;
+	color: $pink;
+
+	.itemActive &,
+	.item:hover & {
+		color: $ink;
+	}
+}
+
+.name {
+	font-weight: $font-weight-semibold;
+}
+
+.price {
+	font: 600 #{$font-size-sm}/ 1 $font-label;
+	font-variant-numeric: tabular-nums;
+}
+
+.total {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	padding: 0.75rem 1rem;
+
+	@include paper($ink);
+
+	color: theme-get(brand, paper-white);
+
+	span {
+		@include label;
+
+		color: inherit;
+	}
+
+	b {
+		@include poster-type(2.25rem);
+
+		color: $pink;
+		font-variant-numeric: tabular-nums;
+	}
+}
+
+.note {
+	color: theme-get(color, 200);
+	font: 500 #{$font-size-sm}/ 1.45 $font-label;
+}
+
+.toCart {
+	align-self: flex-start;
+	font: 600 #{$font-size-sm}/ 1.2 $font-label;
+	text-decoration: underline;
+	text-decoration-color: $pink;
+	text-decoration-thickness: 2px;
+	text-underline-offset: 4px;
+}

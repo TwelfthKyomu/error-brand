@@ -1,0 +1,36 @@
+.pagination {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	padding-top: 1.5rem;
+
+	@include perforation(top);
+}
+
+.page {
+	min-width: 2.75rem;
+	padding: 0.625rem;
+	border: $border-width solid theme-get(color, 100);
+	text-align: center;
+	font: 600 0.8125rem/1 $font-label;
+	font-variant-numeric: tabular-nums;
+	color: theme-get(color, 100);
+
+	&:hover {
+		background: theme-get(brand, paper-white);
+	}
+
+	&:focus-visible {
+		outline: 3px solid theme-get(brand, blue);
+		outline-offset: 3px;
+	}
+}
+
+.current {
+	background: theme-get(brand, ink);
+	color: theme-get(brand, paper-white);
+
+	&:hover {
+		background: theme-get(brand, ink);
+	}
+}

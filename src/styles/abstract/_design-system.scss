@@ -1,0 +1,182 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+$font-primary:
+	var(--font-body),
+	"Onest",
+	-apple-system,
+	BlinkMacSystemFont,
+	"Segoe UI",
+	sans-serif;
+$font-label: $font-primary;
+$font-display:
+	var(--font-display), "Dela Gothic One", "Arial Black", sans-serif;
+$font-poster: var(--font-poster), "Alumni Sans", "Arial Narrow", sans-serif;
+
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.875rem;
+$font-size-base: 1rem;
+
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+
+$line-height-relaxed: 1.7;
+$tracking-wider: 0.12em;
+
+$border-width: 1.5px;
+$border-width-thick: 2px;
+
+$shadow-sm:
+	0 1px 1px rgb(0 0 0 / 25%),
+	0 8px 14px -10px rgb(0 0 0 / 45%);
+$shadow-md: 0 14px 24px -16px rgb(0 0 0 / 60%);
+
+$ease-out: cubic-bezier(0.2, 0.9, 0.25, 1);
+$duration-fast: 120ms;
+$duration-base: 180ms;
+
+$z-index-fixed: 300;
+$z-index-modal-backdrop: 1000;
+$z-index-tooltip: 1003;
+
+$header-offset: 6rem;
+$header-offset-mobile: 5.25rem;
+
+@mixin paper($background: theme-get(brand, paper-white)) {
+	background-color: $background;
+	background-image: var(--toner);
+}
+
+@mixin sheen {
+	background: linear-gradient(
+		var(--sheen-a, 115deg),
+		transparent 32%,
+		rgb(255 255 255 / 15%) 42%,
+		transparent 49%
+	);
+}
+
+@mixin tape-strip($rotate) {
+	position: absolute;
+	top: -11px;
+	left: calc(50% - 38px);
+	z-index: 4;
+	width: 76px;
+	height: 24px;
+	background: theme-get(brand, tape);
+	transform: rotate($rotate);
+	clip-path: polygon(
+		0 10%,
+		5% 0,
+		10% 12%,
+		16% 0,
+		100% 0,
+		95% 30%,
+		100% 55%,
+		96% 100%,
+		6% 100%,
+		0 88%,
+		4% 50%
+	);
+	pointer-events: none;
+}
+
+@mixin tape($rotate: -3deg) {
+	&::before {
+		content: "";
+
+		@include tape-strip($rotate);
+	}
+}
+
+@mixin tiles {
+	$grout: theme-get(brand, grout);
+
+	background-color: theme-get(brand, wall);
+	background-image:
+		var(--grit), linear-gradient($grout 0 2px, transparent 2px 100%),
+		linear-gradient(90deg, $grout 0 2px, transparent 2px 100%),
+		linear-gradient(140deg, theme-get(brand, tile) 0%, transparent 55%);
+	background-size:
+		128px 128px,
+		64px 64px,
+		64px 64px,
+		64px 64px;
+}
+
+@mixin full-wall {
+	display: grid;
+	place-items: center;
+	min-height: calc(100dvh - #{$header-offset});
+	margin-top: -$header-offset;
+	padding: calc(#{$header-offset} + 2rem) 1rem 4rem;
+
+	@include tiles;
+
+	@include mobile {
+		margin-top: -$header-offset-mobile;
+	}
+}
+
+@mixin modal-backdrop {
+	position: fixed;
+	inset: 0;
+	z-index: $z-index-modal-backdrop;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgb(8 9 8 / 64%);
+	backdrop-filter: blur(5px);
+}
+
+@mixin container($max: 1280px) {
+	width: 100%;
+	max-width: $max;
+	margin-inline: auto;
+	padding-inline: 1.5rem;
+
+	@include mobile {
+		padding-inline: 1rem;
+	}
+}
+
+@mixin page($max: 1280px) {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	padding-block: 1rem 4rem;
+
+	@include container($max);
+}
+
+@mixin label {
+	font-family: $font-label;
+	font-size: 0.6875rem;
+	font-weight: $font-weight-semibold;
+	letter-spacing: $tracking-wider;
+	text-transform: uppercase;
+	color: theme-get(color, 200);
+}
+
+@mixin rule($side: bottom) {
+	border-#{$side}: $border-width-thick solid theme-get(color, 100);
+}
+
+@mixin perforation($side: top) {
+	border-#{$side}: $border-width-thick dotted theme-get(variable, 400);
+}
+
+@mixin poster-type($size) {
+	font-family: $font-poster;
+	font-size: $size;
+	font-weight: 900;
+	line-height: 0.84;
+	text-transform: uppercase;
+}
+
+@mixin page-title {
+	@include poster-type(clamp(3.75rem, 10vw, 7rem));
+
+	color: theme-get(color, 100);
+	text-wrap: balance;
+}

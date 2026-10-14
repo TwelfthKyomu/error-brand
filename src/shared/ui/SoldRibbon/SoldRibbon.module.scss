@@ -1,0 +1,19 @@
+.ribbon {
+	position: absolute;
+	left: -10%;
+	right: -10%;
+	top: var(--sold-top, 36%);
+	z-index: 3;
+	padding: 0.4em 0;
+
+	@include paper(theme-get(brand, yellow));
+
+	color: theme-get(brand, ink);
+	font: 900 var(--sold-size, 32px) / 1 $font-poster;
+	letter-spacing: 0.1em;
+	text-align: center;
+	text-transform: uppercase;
+	transform: rotate(-9deg);
+	box-shadow: 0 8px 12px -8px theme-get(brand, shadow);
+	pointer-events: none;
+}

@@ -1,0 +1,59 @@
+$ink: theme-get(brand, ink);
+
+.wall {
+	@include full-wall;
+}
+
+.card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+	width: min(26rem, 100%);
+	padding: 2rem 1.75rem 1.75rem;
+
+	@include paper;
+
+	color: $ink;
+	transform: rotate(-0.6deg);
+	box-shadow:
+		0 1px 1px theme-get(brand, shadow),
+		0 30px 40px -24px theme-get(brand, shadow);
+
+	@include tape(-4deg);
+}
+
+.title {
+	@include poster-type(clamp(2.75rem, 9vw, 3.75rem));
+}
+
+.description {
+	color: theme-get(color, 200);
+	font: 500 #{$font-size-sm}/ 1.45 $font-label;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.alt {
+	font: 500 #{$font-size-sm}/ 1.45 $font-label;
+	text-align: center;
+}
+
+.link {
+	padding: 0;
+	color: $ink;
+	font: inherit;
+	text-decoration: underline;
+	text-decoration-color: theme-get(brand, pink);
+	text-decoration-thickness: 2px;
+	text-underline-offset: 4px;
+
+	&:focus-visible {
+		outline: 3px solid theme-get(brand, blue);
+		outline-offset: 3px;
+	}
+}

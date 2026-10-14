@@ -1,0 +1,25 @@
+.header {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap: 1rem 2rem;
+	padding-bottom: 1rem;
+
+	@include rule(bottom);
+}
+
+.title {
+	@include page-title;
+}
+
+.aside {
+	max-width: 28rem;
+	color: theme-get(color, 100);
+	font: 500 #{$font-size-base}/ 1.45 $font-label;
+	text-align: right;
+
+	@include mobile {
+		text-align: left;
+	}
+}

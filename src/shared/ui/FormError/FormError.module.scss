@@ -1,0 +1,9 @@
+.error {
+	padding: 0.625rem 0.75rem;
+
+	@include paper(theme-get(accent, error-bg));
+
+	border-left: $border-width-thick solid theme-get(accent, error);
+	color: theme-get(accent, error);
+	font: 500 #{$font-size-sm}/ 1.4 $font-label;
+}

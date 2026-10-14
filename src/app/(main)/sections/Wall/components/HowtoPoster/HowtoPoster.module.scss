@@ -1,0 +1,35 @@
+$ink: theme-get(brand, ink);
+
+.howto {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	padding: 16px;
+}
+
+.title {
+	@include poster-type(64px);
+
+	line-height: 0.8;
+}
+
+.text {
+	font: 500 13px/1.4 $font-label;
+}
+
+.tabs {
+	display: flex;
+	gap: 3px;
+	height: 46px;
+	margin-top: auto;
+
+	i {
+		flex: 1;
+		background: $ink;
+	}
+
+	.gone {
+		background: none;
+		border-top: 6px solid $ink;
+	}
+}

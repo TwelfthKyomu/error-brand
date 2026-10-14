@@ -1,0 +1,76 @@
+.gallery {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.visual {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 1.5rem;
+	aspect-ratio: 4 / 5;
+	max-width: 100%;
+	padding: 1.375rem;
+	overflow: hidden;
+
+	@include paper;
+
+	color: theme-get(brand, ink);
+	box-shadow: $shadow-sm;
+}
+
+.kicker {
+	--kicker-size: 0.6563rem;
+}
+
+.photo {
+	position: absolute;
+	inset: 0;
+}
+
+.image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.name {
+	@include poster-type(clamp(3.5rem, 9vw, 8rem));
+
+	overflow-wrap: anywhere;
+}
+
+.pick {
+	--pick-top: 1rem;
+	--pick-right: 1rem;
+	--pick-size: 5.5rem;
+}
+
+.thumbnails {
+	display: grid;
+	grid-template-columns: repeat(6, minmax(0, 1fr));
+	gap: 0.5rem;
+}
+
+.thumbnail {
+	aspect-ratio: 4 / 5;
+	overflow: hidden;
+	border: $border-width solid transparent;
+	opacity: 0.6;
+
+	&:hover {
+		opacity: 0.85;
+	}
+
+	&[aria-pressed="true"] {
+		border-color: theme-get(brand, ink);
+		opacity: 1;
+	}
+
+	&:focus-visible {
+		outline: 3px solid theme-get(brand, blue);
+		outline-offset: 2px;
+	}
+}

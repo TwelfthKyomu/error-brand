@@ -1,0 +1,14 @@
+.page {
+	@include page;
+}
+
+.content {
+	display: grid;
+	grid-template-columns: minmax(0, 1.6fr) minmax(20rem, 1fr);
+	align-items: start;
+	gap: 2.5rem;
+
+	@include tablet {
+		grid-template-columns: 1fr;
+	}
+}

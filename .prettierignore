@@ -1,0 +1,13 @@
+node_modules
+.next
+.cache
+package-lock.json
+yarn.lock
+bun.lockb
+*.min.js
+*.min.css
+dist
+build
+coverage
+.nyc_output
+.vercel

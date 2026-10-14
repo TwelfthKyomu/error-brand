@@ -1,0 +1,49 @@
+$ink: theme-get(brand, ink);
+
+.profile {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+	padding: 1.75rem 1.5rem 1.5rem;
+
+	@include paper(theme-get(brand, yellow));
+
+	color: $ink;
+	transform: rotate(0.8deg);
+	box-shadow: $shadow-md;
+
+	@include tape(3deg);
+}
+
+.title {
+	@include poster-type(2.25rem);
+}
+
+.fields {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.field {
+	display: flex;
+	flex-direction: column;
+	gap: 0.125rem;
+	padding-bottom: 0.625rem;
+
+	@include perforation(bottom);
+
+	border-bottom-color: rgb(19 19 19 / 40%);
+
+	dt {
+		@include label;
+
+		color: $ink;
+	}
+
+	dd {
+		font: 500 #{$font-size-base}/ 1.35 $font-label;
+		overflow-wrap: anywhere;
+	}
+}

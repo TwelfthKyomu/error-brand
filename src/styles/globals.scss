@@ -1,0 +1,37 @@
+@use "abstract" as *;
+
+:root {
+	--toner: url("/textures/toner.png");
+	--grit: url("/textures/grit.png");
+}
+
+html {
+	background: theme-get(color, 300);
+	color: theme-get(color, 100);
+	font-family: var(--font-body), sans-serif;
+	scroll-behavior: smooth;
+}
+
+body {
+	@include paper(theme-get(color, 300));
+
+	color: theme-get(color, 100);
+	font-family: var(--font-body), sans-serif;
+}
+
+html[data-wall] {
+	overflow: hidden;
+}
+
+::selection {
+	background: theme-get(brand, pink);
+	color: theme-get(brand, ink);
+}
+
+main {
+	padding-top: $header-offset;
+
+	@include mobile {
+		padding-top: $header-offset-mobile;
+	}
+}

@@ -1,0 +1,21 @@
+.kicker {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	justify-content: space-between;
+	gap: 0.625rem;
+	padding-right: var(--kicker-inset, 0);
+	font: 600 var(--kicker-size, 10px) / 1.2 $font-label;
+	letter-spacing: 0.13em;
+	text-transform: uppercase;
+}
+
+.featured {
+	margin: -3px 0 0 -5px;
+	padding: 3px 5px;
+	background: theme-get(brand, yellow);
+}
+
+.category {
+	text-align: right;
+}

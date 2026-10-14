@@ -1,0 +1,118 @@
+$ink: theme-get(brand, ink);
+
+.list {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.line {
+	position: relative;
+	display: grid;
+	grid-template-columns: 6.5rem minmax(0, 1fr) auto;
+	align-items: center;
+	gap: 1.25rem;
+	padding: 0.875rem 1.25rem 0.875rem 0.875rem;
+
+	@include paper;
+
+	color: $ink;
+	box-shadow: $shadow-sm;
+
+	@include perforation(left);
+
+	border-left-color: theme-get(variable, 500);
+
+	&:nth-child(2n) {
+		transform: rotate(0.4deg);
+	}
+
+	&:nth-child(2n + 1) {
+		transform: rotate(-0.3deg);
+	}
+
+	@include mobile {
+		grid-template-columns: 5rem minmax(0, 1fr);
+		gap: 0.875rem;
+	}
+}
+
+.thumb {
+	display: grid;
+	place-items: center;
+	aspect-ratio: 4 / 5;
+	overflow: hidden;
+
+	@include paper(theme-get(brand, paper));
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+.placeholder {
+	@include poster-type(1.75rem);
+
+	color: theme-get(brand, pink);
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.375rem;
+	min-width: 0;
+}
+
+.name {
+	font: 1.25rem/1.05 $font-display;
+	overflow-wrap: anywhere;
+}
+
+.variant {
+	padding: 0.25rem 0.5rem;
+	border: $border-width solid $ink;
+
+	@include label;
+
+	color: $ink;
+}
+
+.price {
+	@include poster-type(2.25rem);
+
+	font-variant-numeric: tabular-nums;
+}
+
+.controls {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 0.625rem;
+
+	@include mobile {
+		grid-column: 1 / -1;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+	}
+}
+
+.remove {
+	@include label;
+
+	color: theme-get(color, 200);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+
+	&:hover {
+		color: theme-get(accent, error);
+	}
+
+	&:focus-visible {
+		outline: 3px solid theme-get(brand, blue);
+		outline-offset: 3px;
+	}
+}

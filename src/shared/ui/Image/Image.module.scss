@@ -1,0 +1,55 @@
+.wrapper {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background: linear-gradient(
+		110deg,
+		theme-get(variable, 100) 20%,
+		theme-get(variable, 200) 45%,
+		theme-get(variable, 100) 70%
+	);
+	background-size: 200% 100%;
+	animation: image-loading 1.4s linear infinite;
+}
+
+.wrapper img {
+	opacity: 0;
+	filter: blur(10px);
+	transform: scale(1.03);
+	transition:
+		opacity 240ms ease,
+		filter 360ms ease,
+		transform 360ms ease;
+}
+
+.wrapper[data-loaded="true"] {
+	animation: none;
+}
+
+.wrapper[data-loaded="true"] img {
+	opacity: 1;
+	filter: blur(0);
+	transform: scale(1);
+}
+
+@keyframes image-loading {
+	from {
+		background-position: 200% 0;
+	}
+
+	to {
+		background-position: -200% 0;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.wrapper {
+		animation: none;
+	}
+
+	.wrapper img {
+		transition: none;
+	}
+}

@@ -1,0 +1,142 @@
+.filters {
+	display: flex;
+	flex-direction: column;
+	gap: 0.875rem;
+	padding-bottom: 1.25rem;
+
+	@include rule(bottom);
+}
+
+.search {
+	display: flex;
+	max-width: 30rem;
+	border: $border-width solid theme-get(color, 100);
+
+	@include paper;
+
+	&:focus-within {
+		box-shadow: 4px 4px 0 theme-get(brand, pink);
+	}
+}
+
+.searchInput {
+	flex: 1;
+	min-width: 0;
+	padding: 0.6875rem 0.75rem;
+	border: 0;
+	background: transparent;
+	color: theme-get(color, 100);
+	font: inherit;
+	font-size: $font-size-sm;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.searchButton {
+	padding-inline: 1rem;
+	background: theme-get(brand, ink);
+
+	@include label;
+
+	color: theme-get(brand, paper-white);
+
+	&:hover {
+		background: theme-get(brand, pink);
+		color: theme-get(brand, ink);
+	}
+}
+
+.chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+%chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.5625rem 0.75rem;
+	border: $border-width solid theme-get(color, 100);
+	color: theme-get(color, 100);
+	font: 600 0.75rem/1 $font-label;
+	letter-spacing: 0.04em;
+
+	&:focus-visible {
+		outline: 3px solid theme-get(brand, blue);
+		outline-offset: 3px;
+	}
+}
+
+.chip {
+	@extend %chip;
+
+	&:hover {
+		background: theme-get(brand, paper-white);
+	}
+}
+
+.chip.active {
+	background: theme-get(brand, ink);
+	color: theme-get(brand, paper-white);
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+.toggles,
+.sorts {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+.toggle {
+	@extend %chip;
+}
+
+.box {
+	width: 0.75rem;
+	height: 0.75rem;
+	border: $border-width solid currentColor;
+}
+
+.toggle.active {
+	background: theme-get(brand, pink);
+	border-color: theme-get(brand, pink);
+
+	.box {
+		background: theme-get(brand, ink);
+	}
+}
+
+.sort {
+	@include label;
+
+	padding: 0.5rem 0.25rem;
+	color: theme-get(color, 200);
+
+	&:hover {
+		color: theme-get(color, 100);
+	}
+
+	&:focus-visible {
+		outline: 3px solid theme-get(brand, blue);
+		outline-offset: 2px;
+	}
+}
+
+.sort.active {
+	color: theme-get(color, 100);
+	text-decoration: underline;
+	text-decoration-color: theme-get(brand, pink);
+	text-decoration-thickness: 3px;
+	text-underline-offset: 0.35rem;
+}

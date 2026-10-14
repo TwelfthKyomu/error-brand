@@ -1,0 +1,47 @@
+$ink: theme-get(brand, ink);
+
+.take {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.3125rem;
+	padding: 1rem 1.125rem;
+
+	@include paper(theme-get(brand, pink));
+
+	color: $ink;
+	text-align: left;
+	box-shadow: 4px 4px 0 $ink;
+	transition:
+		transform 0.15s,
+		box-shadow 0.15s;
+
+	strong {
+		font: 1.375rem/1 $font-display;
+	}
+
+	span {
+		font: 500 0.7813rem/1.3 $font-label;
+	}
+
+	&:hover:not(:disabled) {
+		transform: translate(-2px, -2px);
+		box-shadow: 6px 6px 0 $ink;
+	}
+
+	&:active:not(:disabled) {
+		transform: translate(2px, 2px);
+		box-shadow: 2px 2px 0 $ink;
+	}
+
+	&:disabled {
+		background-color: theme-get(brand, paper);
+		box-shadow: none;
+		cursor: not-allowed;
+	}
+
+	&:focus-visible {
+		outline: 3px solid theme-get(brand, blue);
+		outline-offset: 3px;
+	}
+}

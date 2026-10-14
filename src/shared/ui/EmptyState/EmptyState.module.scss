@@ -1,0 +1,33 @@
+.note {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.875rem;
+	width: min(32rem, 100%);
+	margin: 2rem auto;
+	padding: 2rem 1.75rem 1.75rem;
+
+	@include paper(theme-get(brand, yellow));
+
+	color: theme-get(brand, ink);
+	transform: rotate(-0.8deg);
+	box-shadow: $shadow-md;
+
+	@include tape(-3deg);
+}
+
+.title {
+	@include poster-type(clamp(2.5rem, 7vw, 3.5rem));
+}
+
+.description {
+	font: 500 #{$font-size-base}/ 1.45 $font-label;
+}
+
+.action {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	margin-top: 0.5rem;
+}

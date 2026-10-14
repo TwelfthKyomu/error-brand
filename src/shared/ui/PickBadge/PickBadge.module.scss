@@ -1,0 +1,21 @@
+.badge {
+	position: absolute;
+	top: var(--pick-top, -18px);
+	right: var(--pick-right, -16px);
+	z-index: 3;
+	display: grid;
+	place-items: center;
+	width: var(--pick-size, 78px);
+	aspect-ratio: 1;
+	border-radius: 50%;
+
+	@include paper(theme-get(brand, yellow));
+
+	color: theme-get(brand, ink);
+	font: 900 calc(var(--pick-size, 78px) * 0.22) / 0.84 $font-poster;
+	text-align: center;
+	text-transform: uppercase;
+	transform: rotate(12deg);
+	box-shadow: 0 6px 10px -6px theme-get(brand, shadow);
+	pointer-events: none;
+}

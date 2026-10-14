@@ -1,0 +1,43 @@
+{
+	"name": "error-brand",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev --turbopack",
+		"build": "next build",
+		"start": "next start",
+		"lint": "eslint .",
+		"lintx": "eslint .",
+		"lintx:fix": "eslint . --fix",
+		"lint:styles": "stylelint \"src/**/*.scss\" --allow-empty-input",
+		"format": "prettier --write .",
+		"format:check": "prettier --check ."
+	},
+	"dependencies": {
+		"clsx": "^2.1.1",
+		"next": "16.4.0",
+		"react": "^19.3.0",
+		"react-dom": "^19.3.0",
+		"react-hook-form": "^7.89.0",
+		"sass": "^1.105.1",
+		"server-only": "^0.0.1"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.39.5",
+		"@next/eslint-plugin-next": "^15.5.27",
+		"@types/node": "^20.19.43",
+		"@types/react": "^19.3.0",
+		"@types/react-dom": "^19.3.0",
+		"babel-plugin-react-compiler": "^1.0.0",
+		"eslint": "^9.39.5",
+		"eslint-plugin-import": "^2.32.0",
+		"eslint-plugin-jsx-a11y": "^6.10.2",
+		"eslint-plugin-react": "^7.37.5",
+		"eslint-plugin-unicorn": "^56.0.1",
+		"prettier": "^3.9.9",
+		"stylelint": "^16.26.1",
+		"stylelint-config-standard-scss": "^15.0.1",
+		"typescript": "^5.9.3",
+		"typescript-eslint": "^8.71.1"
+	}
+}

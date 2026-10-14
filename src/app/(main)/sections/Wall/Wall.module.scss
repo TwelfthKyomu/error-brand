@@ -1,0 +1,47 @@
+.wall {
+	--wall-paper: #{theme-get(brand, paper)};
+	--wall-paper-white: #{theme-get(brand, paper-white)};
+	--wall-ink: #{theme-get(brand, ink)};
+
+	position: fixed;
+	inset: 0;
+	overflow: clip;
+	background: theme-get(brand, wall);
+	color: theme-get(brand, paper-white);
+	touch-action: none;
+	cursor: grab;
+	-webkit-user-select: none;
+	user-select: none;
+	-webkit-touch-callout: none;
+
+	&[data-dragging] {
+		cursor: grabbing;
+	}
+}
+
+.world {
+	position: absolute;
+	left: 0;
+	top: 0;
+	transform-origin: 0 0;
+	will-change: transform;
+	animation: appear 0.7s $ease-out both;
+}
+
+@keyframes appear {
+	from {
+		opacity: 0;
+	}
+}
+
+.vignette {
+	position: fixed;
+	inset: 0;
+	z-index: 10;
+	pointer-events: none;
+	background: radial-gradient(
+		120% 90% at 50% 45%,
+		transparent 55%,
+		rgb(0 0 0 / 55%)
+	);
+}

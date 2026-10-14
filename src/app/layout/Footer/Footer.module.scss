@@ -1,0 +1,92 @@
+.footer {
+	@include paper(theme-get(brand, ink));
+
+	color: theme-get(brand, paper-white);
+}
+
+.container {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
+	gap: 3rem 6rem;
+	padding-block: 3.5rem 1.5rem;
+
+	@include container(1280px);
+
+	@include tablet {
+		grid-template-columns: 1fr;
+	}
+}
+
+.brand {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.mark {
+	width: 3rem;
+	height: 3rem;
+}
+
+.word {
+	font: clamp(3.5rem, 10vw, 7rem) / 0.8 $font-display;
+	color: theme-get(brand, pink);
+	text-shadow: 5px 5px 0 theme-get(brand, blue);
+}
+
+.tagline {
+	max-width: 30ch;
+	color: theme-get(brand, paper);
+	font: 500 0.9375rem/1.45 $font-label;
+}
+
+.groups {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem 4rem;
+}
+
+.group {
+	display: flex;
+	flex-direction: column;
+	gap: 0.875rem;
+	min-width: 8rem;
+}
+
+.title {
+	@include label;
+
+	color: theme-get(brand, pink);
+}
+
+.links {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+
+	a {
+		font: 500 0.9375rem/1.3 $font-label;
+
+		&:hover {
+			color: theme-get(brand, yellow);
+		}
+
+		&:focus-visible {
+			outline: 3px solid theme-get(brand, yellow);
+			outline-offset: 3px;
+		}
+	}
+}
+
+.bottom {
+	grid-column: 1 / -1;
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+	padding-top: 1.25rem;
+	border-top: 2px dotted rgb(241 240 234 / 30%);
+
+	@include label;
+
+	color: theme-get(brand, paper);
+}

@@ -1,0 +1,25 @@
+.toast {
+	position: fixed;
+	left: 50%;
+	bottom: calc(env(safe-area-inset-bottom, 0px) + 74px);
+	z-index: 40;
+	width: max-content;
+	max-width: calc(100% - 32px);
+	padding: 12px 16px;
+
+	@include paper(theme-get(brand, yellow));
+
+	color: theme-get(brand, ink);
+	font: 600 13px/1.35 $font-label;
+	opacity: 0;
+	transform: translate(-50%, 24px);
+	transition:
+		transform 0.35s $ease-out,
+		opacity 0.25s;
+	pointer-events: none;
+}
+
+.visible {
+	opacity: 1;
+	transform: translate(-50%, 0) rotate(-1deg);
+}

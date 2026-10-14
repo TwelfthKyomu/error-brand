@@ -1,0 +1,43 @@
+$ink: theme-get(brand, ink);
+
+.control {
+	display: inline-flex;
+	align-items: stretch;
+	width: fit-content;
+	border: $border-width-thick solid $ink;
+
+	@include paper;
+}
+
+.button {
+	display: grid;
+	place-items: center;
+	width: 2.75rem;
+	min-height: 2.75rem;
+	color: $ink;
+	font: 600 1.125rem/1 $font-label;
+
+	&:hover:not(:disabled) {
+		background: theme-get(brand, yellow);
+	}
+
+	&:disabled {
+		opacity: 0.3;
+		cursor: not-allowed;
+	}
+
+	&:focus-visible {
+		outline: 3px solid theme-get(brand, blue);
+		outline-offset: -3px;
+	}
+}
+
+.value {
+	display: grid;
+	place-items: center;
+	min-width: 2.5rem;
+	border-inline: $border-width-thick solid $ink;
+	color: $ink;
+	font: 1.125rem/1 $font-display;
+	font-variant-numeric: tabular-nums;
+}
